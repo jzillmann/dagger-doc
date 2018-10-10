@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    
+    dependencies {
+    	classpath 'net.ltgt.gradle:gradle-apt-plugin:0.15'	
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'net.ltgt.apt'
+apply plugin: 'net.ltgt.apt-eclipse'
+
+apply from: rootProject.file("gradle/eclipse.gradle")
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+configurations {
+    daggerDoc
+}
+
+dependencies {
+    compile group: 'com.google.guava', name: 'guava', version: '23.0'
+    compile group: 'com.google.dagger', name: 'dagger', version: '2.16'
+    annotationProcessor group: 'com.google.dagger', name: 'dagger-compiler', version: '2.16'
+    
+    daggerDoc project(':dagger-doc-annotation-processor')
+}
+
+task daggerDoc(type: JavaCompile, group: 'build', description: 'Generates a visual dagger dependency report') {
+    source = sourceSets.main.java
+    classpath = configurations.compile + configurations.daggerDoc
+    
+    //log, mermaid, graphviz
+    def writers = project.properties.get('writers', '');
+    options.compilerArgs = [
+            "-proc:only",
+            "-processor", "io.morethan.daggerdoc.DaggerDocProcessor",
+            "-Awriters=${writers}"
+    ]
+    destinationDir = file("build/reports/dagger")
+}

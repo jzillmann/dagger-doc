@@ -1,0 +1,4 @@
+allprojects {
+    group = 'morethan.io.daggerdoc'
+    version = projectVersion
+}

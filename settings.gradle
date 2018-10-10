@@ -1,0 +1,10 @@
+rootProject.name = 'dagger-doc'
+
+module('annotation-processor')
+module('dagger-example')
+
+def module(String shortName) {
+    def name = ":dagger-doc-$shortName"
+    include name
+    project(name).projectDir = file(shortName)
+}
