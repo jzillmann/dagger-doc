@@ -3,6 +3,10 @@ Generate documentation for your Dagger topology
 
 [ ![Download](https://api.bintray.com/packages/oae/maven/dagger-doc-annotation-processor/images/download.svg) ](https://bintray.com/oae/maven/dagger-doc-annotation-processor/_latestVersion)
 
+## News
+
+- 2018/10/12 - 0.1 Release
+
 ## Usage
 
 ### Gradle
