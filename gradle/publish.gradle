@@ -1,0 +1,77 @@
+apply plugin: 'signing'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+def projectUrl      = 'https://github.com/jzillmann/dagger-doc'
+def issuesUrl       = 'https://github.com/jzillmann/dagger-doc/issues'
+def gitUrl          = 'https://github.com/jzillmann/dagger-doc.git'
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            pom {
+                name = pomName
+                description = pomDescription
+                url = projectUrl
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                scm {
+                    url = gitUrl
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url = "$buildDir/repos/releases"
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenPublication
+}
+
+bintray {
+    user = bintrayUser
+    key = bintrayKey
+    publications = ['mavenPublication']
+    dryRun = false
+    publish = false
+    override = false
+
+    pkg {
+        repo = 'maven'
+        name = project.name
+        desc = pomDescription
+        licenses = ['Apache-2.0']
+        websiteUrl = projectUrl
+        issueTrackerUrl = issuesUrl
+        vcsUrl = gitUrl
+        version {
+            name = project.version
+            released  = new Date()
+            gpg {
+                sign = true
+            }
+        }
+    }
+
+}

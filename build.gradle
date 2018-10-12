@@ -1,4 +1,8 @@
+plugins {
+  id "com.jfrog.bintray" version "1.8.4" apply false
+}
+
 allprojects {
-    group = 'morethan.io.daggerdoc'
+    group = 'io.morethan.daggerdoc'
     version = projectVersion
 }
