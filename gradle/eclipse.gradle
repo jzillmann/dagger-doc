@@ -1,3 +1,5 @@
+apply plugin: 'eclipse'
+
 eclipse {
     jdt.file.withProperties {
         it['org.eclipse.jdt.core.formatter.lineSplit'] = '200'
