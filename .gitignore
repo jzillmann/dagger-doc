@@ -4,5 +4,8 @@
 .settings/
 .apt_generated/
 .factorypath
+.vscode/
 bin/
 build/
+node_modules/
+dist/
