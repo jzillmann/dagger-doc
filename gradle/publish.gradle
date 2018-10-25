@@ -11,17 +11,21 @@ task sourcesJar(type: Jar, dependsOn: classes) {
     from sourceSets.main.allSource
 }
 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
 artifacts {
-    archives sourcesJar
+    archives sourcesJar, javadocJar
 }
 
 publishing {
     publications {
         mavenPublication(MavenPublication) {
             from components.java
-            artifact sourcesJar {
-                classifier "sources"
-            }
+            artifact sourcesJar
+            artifact javadocJar
             pom {
                 name = pomName
                 description = pomDescription
