@@ -8,20 +8,31 @@ import java.util.Set;
 import javax.inject.Qualifier;
 import javax.inject.Singleton;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.collect.ImmutableMap;
+
 import dagger.Module;
 import dagger.Provides;
+import io.morethan.daggerdoc.ModuleDoc;
 
 @Module
+@ModuleDoc(category = "UI Access Layer")
 public class ServerModule {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ServerModule.class);
 
     @Provides
     @Singleton
-    public Server server(@ServerPort int port, Set<ServerService> services) {
-        Server myServer = new Server(port);
-        for (ServerService service : services) {
-            myServer.add(service);
+    public Server server(@ServerPort int port, Set<ServerEndpoint> endpoints) {
+        ImmutableMap.Builder<String, ServerEndpoint> endpointMap = ImmutableMap.builder();
+        LOG.info("Registering endpoints");
+        for (ServerEndpoint endpoint : endpoints) {
+            LOG.info("  - '{}' ", endpoint.type());
+            endpointMap.put(endpoint.type(), endpoint);
         }
-        return myServer;
+        return new Server(port, endpointMap.build());
     }
 
     @Qualifier

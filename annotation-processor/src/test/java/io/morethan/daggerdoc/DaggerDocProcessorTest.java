@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.tools.JavaFileObject;
@@ -47,23 +48,44 @@ class DaggerDocProcessorTest {
         DependencyGraph dependencyGraph = resultWriter.dependencyGraph();
         assertThat(dependencyGraph).isNotNull();
 
-        Node appComponent = new Node("AppComponent", NodeType.COMPONENT);
-        Node appModule = new Node("AppModule", NodeType.MODULE);
-        Node serverModule = new Node("ServerModule", NodeType.MODULE);
-        Node serviceModule = new Node("ServiceModule", NodeType.MODULE);
+        Node appComponent = new Node("AppComponent", NodeType.COMPONENT, Optional.empty());
+        Node appModule = new Node("AppModule", NodeType.MODULE, Optional.of("App Layer"));
+        Node serverModule = new Node("ServerModule", NodeType.MODULE, Optional.of("UI Access Layer"));
+        Node executionModule = new Node("ExecutionModule", NodeType.MODULE, Optional.of("Infrastructure Layer"));
+        Node persistenceModule = new Node("PersistenceModule", NodeType.MODULE, Optional.of("Infrastructure Layer"));
+        Node mailModule = new Node("MailModule", NodeType.MODULE, Optional.of("Infrastructure Layer"));
+        Node userModule = new Node("UserModule", NodeType.MODULE, Optional.of("Domain Layer"));
+        Node chatModule = new Node("ChatModule", NodeType.MODULE, Optional.of("Domain Layer"));
 
         assertThat(dependencyGraph.nodes()).containsOnly(
                 appComponent,
                 appModule,
                 serverModule,
-                serviceModule);
+                executionModule,
+                persistenceModule,
+                mailModule,
+                userModule,
+                chatModule
+
+        );
 
         assertThat(dependencyGraph.links()).containsOnly(
                 new Link(appComponent, appModule, LinkType.DEPENDS_ON),
+                new Link(appComponent, userModule, LinkType.DEPENDS_ON),
+                new Link(appComponent, chatModule, LinkType.DEPENDS_ON),
                 new Link(appModule, serverModule, LinkType.DEPENDS_ON),
-                new Link(appModule, serviceModule, LinkType.DEPENDS_ON),
-                new Link(serviceModule, serverModule, LinkType.CONTRIBUTES_TO),
-                new Link(appModule, serverModule, LinkType.CONTRIBUTES_TO));
+                new Link(appModule, persistenceModule, LinkType.DEPENDS_ON),
+                new Link(appModule, executionModule, LinkType.DEPENDS_ON),
+                new Link(appModule, mailModule, LinkType.DEPENDS_ON),
+                new Link(executionModule, mailModule, LinkType.DEPENDS_ON),
+                new Link(userModule, persistenceModule, LinkType.DEPENDS_ON),
+                new Link(userModule, mailModule, LinkType.DEPENDS_ON),
+                new Link(chatModule, persistenceModule, LinkType.DEPENDS_ON),
+
+                new Link(userModule, serverModule, LinkType.CONTRIBUTES_TO),
+                new Link(chatModule, serverModule, LinkType.CONTRIBUTES_TO)
+
+        );
 
     }
 

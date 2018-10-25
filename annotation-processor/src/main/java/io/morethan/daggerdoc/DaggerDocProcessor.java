@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ServiceLoader;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -25,6 +26,7 @@ import com.google.auto.service.AutoService;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
 import com.google.common.base.Verify;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
@@ -114,7 +116,7 @@ public class DaggerDocProcessor extends AbstractProcessor {
 
         // Inspect components
         for (Element componentClass : roundEnv.getElementsAnnotatedWith(Component.class)) {
-            _graphBuilder.addNode(componentClass, NodeType.COMPONENT);
+            _graphBuilder.addNode(componentClass, NodeType.COMPONENT, Optional.empty());
             Util.consumeAnnotationValues(componentClass, Component.class, "modules", entry -> {
                 Util.consumeClassValues(entry.getValue(), typeMirror -> {
                     _graphBuilder.addDependency(componentClass, typeMirror);
@@ -124,7 +126,12 @@ public class DaggerDocProcessor extends AbstractProcessor {
 
         // Inspect modules
         for (Element moduleClass : roundEnv.getElementsAnnotatedWith(Module.class)) {
-            _graphBuilder.addNode(moduleClass, NodeType.MODULE);
+            Optional<String> moduleCategory = Optional.empty();
+            ModuleDoc annotation = moduleClass.getAnnotation(ModuleDoc.class);
+            if (annotation != null && !Strings.isNullOrEmpty(annotation.category())) {
+                moduleCategory = Optional.of(annotation.category());
+            }
+            _graphBuilder.addNode(moduleClass, NodeType.MODULE, moduleCategory);
             Util.consumeAnnotationValues(moduleClass, Module.class, "includes", entry -> {
                 Util.consumeClassValues(entry.getValue(), typeMirror -> {
                     _graphBuilder.addDependency(moduleClass, typeMirror);

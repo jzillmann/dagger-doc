@@ -13,6 +13,7 @@ repositories {
 }
 
  dependencies {
+    compile     project(':dagger-doc-annotations')
     compileOnly     group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc4'
     compileOnly     group: 'com.google.dagger', name: 'dagger', version: '2.16'
     testCompile     group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc4'
@@ -27,6 +28,8 @@ repositories {
     testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.18.3'
 
     testCompile group: 'org.assertj', name:'assertj-core', version:'3.9.0'
+    testCompile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+
 }
 
 test {

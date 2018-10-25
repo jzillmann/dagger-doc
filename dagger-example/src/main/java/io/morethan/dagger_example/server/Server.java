@@ -1,27 +1,29 @@
 package io.morethan.dagger_example.server;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.base.MoreObjects;
+import com.google.common.base.Verify;
+import com.google.common.util.concurrent.AbstractIdleService;
 
-public class Server {
+public class Server extends AbstractIdleService {
 
-    private final List<ServerService> _services = new ArrayList<>();
+    private static final Logger LOG = LoggerFactory.getLogger(Server.class);
     private final int _port;
     private final String _address;
+    private final Map<String, ServerEndpoint> _endpoints;
 
-    public Server(int port) {
-        this("0.0.0.0", port);
+    public Server(int port, Map<String, ServerEndpoint> serverEndpoints) {
+        this("0.0.0.0", port, serverEndpoints);
     }
 
-    public Server(String address, int port) {
+    public Server(String address, int port, Map<String, ServerEndpoint> serverEndpoints) {
         _address = address;
         _port = port;
-    }
-
-    public void add(ServerService service) {
-        _services.add(service);
+        _endpoints = serverEndpoints;
     }
 
     public String getAddress() {
@@ -32,13 +34,24 @@ public class Server {
         return _port;
     }
 
-    public List<ServerService> getServices() {
-        return _services;
+    public void call(String endpointName, Map<String, String> parameters) {
+        ServerEndpoint endpoint = Verify.verifyNotNull(_endpoints.get(endpointName), "No endpoint '%s' found!", endpointName);
+        endpoint.call(parameters);
+    }
+
+    @Override
+    protected void startUp() throws Exception {
+        LOG.info("Starting up server on port {}", _port);
+    }
+
+    @Override
+    protected void shutDown() throws Exception {
+        LOG.info("Shutdown server");
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this).addValue(_address).addValue(_port).addValue(_services).toString();
+        return MoreObjects.toStringHelper(this).addValue(_address).addValue(_port).addValue(_endpoints).toString();
     }
 
 }

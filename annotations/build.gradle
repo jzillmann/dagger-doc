@@ -1,0 +1,13 @@
+ext.pomName = 'Dagger Doc - Annotations'
+ext.pomDescription = 'Annotations enriching generated docs for a Dagger 2 project.'
+
+apply plugin: 'java'
+apply from: rootProject.file("gradle/eclipse.gradle")
+apply from: rootProject.file("gradle/publish.gradle")
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}

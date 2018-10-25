@@ -6,6 +6,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.tools.Diagnostic.Kind;
@@ -18,6 +21,7 @@ import com.google.common.io.BaseEncoding;
 import io.morethan.daggerdoc.ResultWriter;
 import io.morethan.daggerdoc.model.DependencyGraph;
 import io.morethan.daggerdoc.model.LinkType;
+import io.morethan.daggerdoc.model.Node;
 import io.morethan.daggerdoc.model.NodeType;
 
 /**
@@ -50,10 +54,19 @@ public class MermaidResultWriter implements ResultWriter {
                 ouput.println();
 
                 // Print modules
-                dependencyGraph.nodes().stream().filter(node -> node.type() == NodeType.MODULE).forEach(node -> {
-                    ouput.printf("%s(%<s)", node.name());
+                Map<String, List<Node>> nodesByCategory = dependencyGraph.nodes().stream()
+                        .filter(node -> node.type() == NodeType.MODULE)
+                        .collect(Collectors.groupingBy(node -> node.category().orElse("")));
+                if (nodesByCategory.containsKey("")) {
+                    nodesByCategory.remove("").forEach(node -> ouput.printf("%s(%<s)", node.name()));
+                }
+
+                nodesByCategory.entrySet().stream().forEach(entry -> {
+                    ouput.printf("subgraph %s", entry.getKey());
+                    entry.getValue().stream().forEach(node -> ouput.printf("  %s(%<s)", node.name()));
+                    ouput.println("end");
+                    ouput.println();
                 });
-                ouput.println();
 
                 // Print depends-on links for components
                 dependencyGraph.links().stream().filter(link -> link.type() == LinkType.DEPENDS_ON && link.node1().type() == NodeType.COMPONENT).forEach(link -> {

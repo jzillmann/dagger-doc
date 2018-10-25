@@ -4,25 +4,33 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import dagger.multibindings.IntoSet;
+import io.morethan.dagger_example.exec.ExecutionModule;
+import io.morethan.dagger_example.exec.ExecutionService;
+import io.morethan.dagger_example.mail.MailModule;
+import io.morethan.dagger_example.mail.MailService;
+import io.morethan.dagger_example.persistence.PersistenceModule;
+import io.morethan.dagger_example.persistence.PersistenceService;
 import io.morethan.dagger_example.server.Server;
 import io.morethan.dagger_example.server.ServerModule;
-import io.morethan.dagger_example.server.ServerService;
-import io.morethan.dagger_example.service.ServiceModule;
+import io.morethan.daggerdoc.ModuleDoc;
 
-@Module(includes = { ServerModule.class, ServiceModule.class })
+@Module(includes = {
+        ServerModule.class,
+        PersistenceModule.class,
+        ExecutionModule.class,
+        MailModule.class
+})
+@ModuleDoc(category = "App Layer")
 public class AppModule {
 
     @Provides
     @Singleton
-    @IntoSet
-    ServerService extraService() {
-        return new ServerService("extraService");
+    LifeCycleController app(
+            Server server,
+            PersistenceService persistenceService,
+            ExecutionService executionService,
+            MailService mailService) {
+        return new LifeCycleController(server, persistenceService, executionService, mailService);
     }
 
-    @Provides
-    @Singleton
-    App app(Server server) {
-        return new App(server);
-    }
 }

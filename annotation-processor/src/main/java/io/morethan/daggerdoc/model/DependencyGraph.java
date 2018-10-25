@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.lang.model.element.Element;
@@ -44,13 +45,14 @@ public class DependencyGraph {
         private final Set<MultibindingLinker> _multibindingLinkers = new HashSet<>();
         private final Map<TypeString, String> _multibindingConsumers = new HashMap<>();
 
-        public Node addNode(Element element, NodeType type) {
+        public Node addNode(Element element, NodeType type, Optional<String> category) {
             String id = nodeId(element);
             Node node = _nodeById.get(id);
             if (node != null) {
-                Verify.verify(node.type() == type, "Can't register node for %s of type %s since it is already registered with type %s", id, type, node.type());
+                Verify.verify(node.type() == type, "Can't register node '%s' of type %s since it is already registered with type %s", id, type, node.type());
+                Verify.verify(node.category().equals(category), "Can't register node '%s' for category %s since it is already registered with category %s", id, category, node.category());
             } else {
-                node = new Node(element.getSimpleName().toString(), type);
+                node = new Node(element.getSimpleName().toString(), type, category);
                 _nodeById.put(id, node);
             }
             return node;

@@ -29,11 +29,19 @@ configurations {
 }
 
 dependencies {
-    compile group: 'com.google.guava', name: 'guava', version: '23.0'
-    compile group: 'com.google.dagger', name: 'dagger', version: '2.16'
+    compileOnly project(':dagger-doc-annotations')
+    compile group: 'com.google.guava',          name: 'guava',              version: '23.0'
+    compile group: 'com.google.dagger',         name: 'dagger',             version: '2.16'
+    compile group: 'org.slf4j',                 name: 'slf4j-api',          version: '1.7.25'
+    compile group: 'org.apache.logging.log4j',  name: 'log4j-slf4j-impl',   version: '2.11.1'
+
     annotationProcessor group: 'com.google.dagger', name: 'dagger-compiler', version: '2.16'
     
+    daggerDoc project(':dagger-doc-annotations')
     daggerDoc project(':dagger-doc-annotation-processor')
+
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.3.1'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'
 }
 
 task daggerDoc(type: JavaCompile, group: 'build', description: 'Generates a visual dagger dependency report') {

@@ -1,20 +1,22 @@
 package io.morethan.dagger_example.server;
 
+import java.util.Map;
+
 import com.google.common.base.MoreObjects;
 
-public class ServerService {
+public abstract class ServerEndpoint {
 
-    private final String _name;
-
-    public ServerService(String name) {
-        _name = name;
+    public String type() {
+        return getClass().getSimpleName();
     }
+
+    public abstract void call(Map<String, String> parameters);
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((_name == null) ? 0 : _name.hashCode());
+        result = prime * result + ((type() == null) ? 0 : type().hashCode());
         return result;
     }
 
@@ -29,12 +31,12 @@ public class ServerService {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        ServerService other = (ServerService) obj;
-        if (_name == null) {
-            if (other._name != null) {
+        ServerEndpoint other = (ServerEndpoint) obj;
+        if (type() == null) {
+            if (other.type() != null) {
                 return false;
             }
-        } else if (!_name.equals(other._name)) {
+        } else if (!type().equals(other.type())) {
             return false;
         }
         return true;
@@ -42,7 +44,7 @@ public class ServerService {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this).addValue(_name).toString();
+        return MoreObjects.toStringHelper(this).addValue(type()).toString();
     }
 
 }

@@ -1,5 +1,6 @@
 rootProject.name = 'dagger-doc'
 
+module('annotations')
 module('annotation-processor')
 module('dagger-example')
 
