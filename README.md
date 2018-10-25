@@ -1,7 +1,11 @@
 # dagger-doc
-Generate documentation for your Dagger topology
 
 [ ![Download](https://api.bintray.com/packages/oae/maven/dagger-doc-annotation-processor/images/download.svg) ](https://bintray.com/oae/maven/dagger-doc-annotation-processor/_latestVersion)
+
+Generate documentation for your Dagger topology. A annotation processor scans for Dagger2 annotations and generates a dependency graph out of it. The result writer of the annotation processor is pluggable (ServiceLocator). The default writer spits out a text file in [mermaid](https://mermaidjs.github.io) syntax. You can convert this into a SVG by pasting it into the [mermaid online editor](https://mermaidjs.github.io/mermaid-live-editor/). A result could look like that:
+
+![module-overview](docs/example.svg)
+
 
 ## News
 

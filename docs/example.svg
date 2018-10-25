@@ -1,0 +1,350 @@
+<svg id="mermaid-1540452818387" width="100%" xmlns="http://www.w3.org/2000/svg" style="max-width: 725.51953125px;" viewBox="0 0 725.51953125 596"><style>
+
+
+#mermaid-1540452818387 .label {
+  font-family: 'trebuchet ms', verdana, arial;
+  color: #333; }
+
+#mermaid-1540452818387 .node rect,
+#mermaid-1540452818387 .node circle,
+#mermaid-1540452818387 .node ellipse,
+#mermaid-1540452818387 .node polygon {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1px; }
+
+#mermaid-1540452818387 .node.clickable {
+  cursor: pointer; }
+
+#mermaid-1540452818387 .arrowheadPath {
+  fill: #333333; }
+
+#mermaid-1540452818387 .edgePath .path {
+  stroke: #333333;
+  stroke-width: 1.5px; }
+
+#mermaid-1540452818387 .edgeLabel {
+  background-color: #e8e8e8; }
+
+#mermaid-1540452818387 .cluster rect {
+  fill: #ffffde !important;
+  stroke: #aaaa33 !important;
+  stroke-width: 1px !important; }
+
+#mermaid-1540452818387 .cluster text {
+  fill: #333; }
+
+#mermaid-1540452818387 div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 12px;
+  background: #ffffde;
+  border: 1px solid #aaaa33;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100; }
+
+#mermaid-1540452818387 .actor {
+  stroke: #CCCCFF;
+  fill: #ECECFF; }
+
+#mermaid-1540452818387 text.actor {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1540452818387 .actor-line {
+  stroke: grey; }
+
+#mermaid-1540452818387 .messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  marker-end: 'url(#arrowhead)';
+  stroke: #333; }
+
+#mermaid-1540452818387 .messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: #333; }
+
+#mermaid-1540452818387 #arrowhead {
+  fill: #333; }
+
+#mermaid-1540452818387 #crosshead path {
+  fill: #333 !important;
+  stroke: #333 !important; }
+
+#mermaid-1540452818387 .messageText {
+  fill: #333;
+  stroke: none; }
+
+#mermaid-1540452818387 .labelBox {
+  stroke: #CCCCFF;
+  fill: #ECECFF; }
+
+#mermaid-1540452818387 .labelText {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1540452818387 .loopText {
+  fill: black;
+  stroke: none; }
+
+#mermaid-1540452818387 .loopLine {
+  stroke-width: 2;
+  stroke-dasharray: '2 2';
+  marker-end: 'url(#arrowhead)';
+  stroke: #CCCCFF; }
+
+#mermaid-1540452818387 .note {
+  stroke: #aaaa33;
+  fill: #fff5ad; }
+
+#mermaid-1540452818387 .noteText {
+  fill: black;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 14px; }
+
+
+#mermaid-1540452818387 .section {
+  stroke: none;
+  opacity: 0.2; }
+
+#mermaid-1540452818387 .section0 {
+  fill: rgba(102, 102, 255, 0.49); }
+
+#mermaid-1540452818387 .section2 {
+  fill: #fff400; }
+
+#mermaid-1540452818387 .section1,
+#mermaid-1540452818387 .section3 {
+  fill: white;
+  opacity: 0.2; }
+
+#mermaid-1540452818387 .sectionTitle0 {
+  fill: #333; }
+
+#mermaid-1540452818387 .sectionTitle1 {
+  fill: #333; }
+
+#mermaid-1540452818387 .sectionTitle2 {
+  fill: #333; }
+
+#mermaid-1540452818387 .sectionTitle3 {
+  fill: #333; }
+
+#mermaid-1540452818387 .sectionTitle {
+  text-anchor: start;
+  font-size: 11px;
+  text-height: 14px; }
+
+
+#mermaid-1540452818387 .grid .tick {
+  stroke: lightgrey;
+  opacity: 0.3;
+  shape-rendering: crispEdges; }
+
+#mermaid-1540452818387 .grid path {
+  stroke-width: 0; }
+
+
+#mermaid-1540452818387 .today {
+  fill: none;
+  stroke: red;
+  stroke-width: 2px; }
+
+
+
+#mermaid-1540452818387 .task {
+  stroke-width: 2; }
+
+#mermaid-1540452818387 .taskText {
+  text-anchor: middle;
+  font-size: 11px; }
+
+#mermaid-1540452818387 .taskTextOutsideRight {
+  fill: black;
+  text-anchor: start;
+  font-size: 11px; }
+
+#mermaid-1540452818387 .taskTextOutsideLeft {
+  fill: black;
+  text-anchor: end;
+  font-size: 11px; }
+
+
+#mermaid-1540452818387 .taskText0,
+#mermaid-1540452818387 .taskText1,
+#mermaid-1540452818387 .taskText2,
+#mermaid-1540452818387 .taskText3 {
+  fill: white; }
+
+#mermaid-1540452818387 .task0,
+#mermaid-1540452818387 .task1,
+#mermaid-1540452818387 .task2,
+#mermaid-1540452818387 .task3 {
+  fill: #8a90dd;
+  stroke: #534fbc; }
+
+#mermaid-1540452818387 .taskTextOutside0,
+#mermaid-1540452818387 .taskTextOutside2 {
+  fill: black; }
+
+#mermaid-1540452818387 .taskTextOutside1,
+#mermaid-1540452818387 .taskTextOutside3 {
+  fill: black; }
+
+
+#mermaid-1540452818387 .active0,
+#mermaid-1540452818387 .active1,
+#mermaid-1540452818387 .active2,
+#mermaid-1540452818387 .active3 {
+  fill: #bfc7ff;
+  stroke: #534fbc; }
+
+#mermaid-1540452818387 .activeText0,
+#mermaid-1540452818387 .activeText1,
+#mermaid-1540452818387 .activeText2,
+#mermaid-1540452818387 .activeText3 {
+  fill: black !important; }
+
+
+#mermaid-1540452818387 .done0,
+#mermaid-1540452818387 .done1,
+#mermaid-1540452818387 .done2,
+#mermaid-1540452818387 .done3 {
+  stroke: grey;
+  fill: lightgrey;
+  stroke-width: 2; }
+
+#mermaid-1540452818387 .doneText0,
+#mermaid-1540452818387 .doneText1,
+#mermaid-1540452818387 .doneText2,
+#mermaid-1540452818387 .doneText3 {
+  fill: black !important; }
+
+
+#mermaid-1540452818387 .crit0,
+#mermaid-1540452818387 .crit1,
+#mermaid-1540452818387 .crit2,
+#mermaid-1540452818387 .crit3 {
+  stroke: #ff8888;
+  fill: red;
+  stroke-width: 2; }
+
+#mermaid-1540452818387 .activeCrit0,
+#mermaid-1540452818387 .activeCrit1,
+#mermaid-1540452818387 .activeCrit2,
+#mermaid-1540452818387 .activeCrit3 {
+  stroke: #ff8888;
+  fill: #bfc7ff;
+  stroke-width: 2; }
+
+#mermaid-1540452818387 .doneCrit0,
+#mermaid-1540452818387 .doneCrit1,
+#mermaid-1540452818387 .doneCrit2,
+#mermaid-1540452818387 .doneCrit3 {
+  stroke: #ff8888;
+  fill: lightgrey;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges; }
+
+#mermaid-1540452818387 .doneCritText0,
+#mermaid-1540452818387 .doneCritText1,
+#mermaid-1540452818387 .doneCritText2,
+#mermaid-1540452818387 .doneCritText3 {
+  fill: black !important; }
+
+#mermaid-1540452818387 .activeCritText0,
+#mermaid-1540452818387 .activeCritText1,
+#mermaid-1540452818387 .activeCritText2,
+#mermaid-1540452818387 .activeCritText3 {
+  fill: black !important; }
+
+#mermaid-1540452818387 .titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: black; }
+
+#mermaid-1540452818387 g.classGroup text {
+  fill: #9370DB;
+  stroke: none;
+  font-family: 'trebuchet ms', verdana, arial;
+  font-size: 10px; }
+
+#mermaid-1540452818387 g.classGroup rect {
+  fill: #ECECFF;
+  stroke: #9370DB; }
+
+#mermaid-1540452818387 g.classGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 .classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #ECECFF;
+  opacity: 0.5; }
+
+#mermaid-1540452818387 .classLabel .label {
+  fill: #9370DB;
+  font-size: 10px; }
+
+#mermaid-1540452818387 .relation {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+#mermaid-1540452818387 #compositionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 #compositionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 #aggregationStart {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 #aggregationEnd {
+  fill: #ECECFF;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 #dependencyStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 #dependencyEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 #extensionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 #extensionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#mermaid-1540452818387 .commit-id,
+#mermaid-1540452818387 .commit-msg,
+#mermaid-1540452818387 .branch-label {
+  fill: lightgrey;
+  color: lightgrey; }
+</style><style>#mermaid-1540452818387 {
+    color: rgba(0, 0, 0, 0.65098);
+    font: normal normal normal normal 14px/21px "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }</style><g transform="translate(-12, -12)"><g class="output"><g class="clusters"><g class="cluster" id="subGraph3" transform="translate(180.5703125,438.5)" style="opacity: 1;"><rect width="321.140625" height="91" x="-160.5703125" y="-45.5"></rect><g class="label"><g transform="translate(0,0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"></div></foreignObject></g></g><text x="0" y="-31.5" fill="black" stroke="none" id="mermaid-1540452818387Text" style="text-anchor: middle;">Domain Layer</text></g><g class="cluster" id="subGraph2" transform="translate(457.072265625,156.5)" style="opacity: 1;"><rect width="544.89453125" height="91" x="-272.447265625" y="-45.5"></rect><g class="label"><g transform="translate(0,0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"></div></foreignObject></g></g><text x="0" y="-31.5" fill="black" stroke="none" id="mermaid-1540452818387Text" style="text-anchor: middle;">App Layer</text></g><g class="cluster" id="subGraph1" transform="translate(545.330078125,496.5)" style="opacity: 1;"><rect width="368.37890625" height="207" x="-184.189453125" y="-103.5"></rect><g class="label"><g transform="translate(0,0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"></div></foreignObject></g></g><text x="0" y="-89.5" fill="black" stroke="none" id="mermaid-1540452818387Text" style="text-anchor: middle;">Infrastructure Layer</text></g><g class="cluster" id="subGraph0" transform="translate(155.25,297.5)" style="opacity: 1;"><rect width="216.640625" height="91" x="-108.3203125" y="-45.5"></rect><g class="label"><g transform="translate(0,0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"></div></foreignObject></g></g><text x="0" y="-31.5" fill="black" stroke="none" id="mermaid-1540452818387Text" style="text-anchor: middle;">UI Access Layer</text></g></g><g class="edgePaths"><g class="edgePath" style="opacity: 1;"><path class="path" d="M483.953125,136L483.953125,111L483.953125,86L246.5859375,49.38331037770833" marker-end="url(#arrowhead2502)" style="stroke: #333; stroke-width: 3.5px;fill:none"></path><defs><marker id="arrowhead2502" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M273.6947544642857,418L290.51953125,393L290.51953125,368L290.51953125,343L290.51953125,297.5L290.51953125,252L290.51953125,227L94.6796875,202L94.6796875,156.5L94.6796875,111L94.6796875,86L146.50403502747253,61" marker-end="url(#arrowhead2503)" style="stroke: #333; stroke-width: 3.5px;fill:none"></path><defs><marker id="arrowhead2503" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M106.30236950549451,418L111.796875,393L111.796875,368L20.8984375,343L20.8984375,297.5L20.8984375,252L20.8984375,227L20.8984375,202L20.8984375,156.5L20.8984375,111L20.8984375,86L131.4140625,56.08676860157085" marker-end="url(#arrowhead2504)" style="stroke: #333; stroke-width: 3.5px;fill:none"></path><defs><marker id="arrowhead2504" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M138.44921875,277L138.44921875,252L138.44921875,227L225.44140625,202L439.6875,164.29108176309705" marker-end="url(#arrowhead2505)" style="fill:none"></path><defs><marker id="arrowhead2505" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M493.2828382554945,534L529.05078125,509L529.05078125,484L306.140625,446.31720679796234" marker-end="url(#arrowhead2506)" style="fill:none"></path><defs><marker id="arrowhead2506" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M650.7207675137363,534L679.88671875,509L679.88671875,484L679.88671875,438.5L679.88671875,393L679.88671875,368L679.88671875,343L679.88671875,297.5L679.88671875,252L679.88671875,227L679.88671875,202L528.21875,166.77943140812218" marker-end="url(#arrowhead2507)" style="fill:none"></path><defs><marker id="arrowhead2507" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M606.5458018543956,534L581.83984375,509L581.83984375,484L581.83984375,459" marker-end="url(#arrowhead2508)" style="fill:none"></path><defs><marker id="arrowhead2508" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M581.83984375,418L581.83984375,393L581.83984375,368L581.83984375,343L581.83984375,297.5L581.83984375,252L581.83984375,227L581.83984375,202L528.0559323489011,177" marker-end="url(#arrowhead2509)" style="fill:none"></path><defs><marker id="arrowhead2509" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M591.772707760989,534L549.05078125,509L549.05078125,484L306.140625,445.7765086527161" marker-end="url(#arrowhead2510)" style="fill:none"></path><defs><marker id="arrowhead2510" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M455.96291208791206,534L446.21875,509L446.21875,484L148.59375,444.68212130835184" marker-end="url(#arrowhead2511)" style="fill:none"></path><defs><marker id="arrowhead2511" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M446.9519230769231,534L426.21875,509L426.21875,484L426.21875,438.5L426.21875,393L426.21875,368L426.21875,343L426.21875,297.5L426.21875,252L426.21875,227L426.21875,202L457.9409340659341,177" marker-end="url(#arrowhead2512)" style="fill:none"></path><defs><marker id="arrowhead2512" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M97.29138049450549,418L91.796875,393L91.796875,368L110.53125,343L125.87079326923077,318" marker-end="url(#arrowhead2513)" style="stroke: #333; fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead2513" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g><g class="edgePath" style="opacity: 1;"><path class="path" d="M235.74828296703296,418L206.296875,393L206.296875,368L206.296875,343L169.0179429945055,318" marker-end="url(#arrowhead2514)" style="stroke: #333; fill:none;stroke-width:2px;stroke-dasharray:3;"></path><defs><marker id="arrowhead2514" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="strokeWidth" markerWidth="8" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowheadPath" style="stroke-width: 1px; stroke-dasharray: 1px, 0px;"></path></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel" transform="" style="opacity: 1;"><g transform="translate(0,0)" class="label"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node" id="UserModule" transform="translate(259.8984375,438.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-46.2421875" y="-20.5" width="92.484375" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-36.2421875,-10.5)"><foreignObject width="72.484375" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">UserModule</div></foreignObject></g></g></g><g class="node" id="ChatModule" transform="translate(101.796875,438.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-46.796875" y="-20.5" width="93.59375" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-36.796875,-10.5)"><foreignObject width="73.59375" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">ChatModule</div></foreignObject></g></g></g><g class="node" id="AppModule" transform="translate(483.953125,156.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-44.265625" y="-20.5" width="88.53125" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-34.265625,-10.5)"><foreignObject width="68.53125" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">AppModule</div></foreignObject></g></g></g><g class="node" id="PersistenceModule" transform="translate(463.953125,554.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-67.8125" y="-20.5" width="135.625" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-57.8125,-10.5)"><foreignObject width="115.625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">PersistenceModule</div></foreignObject></g></g></g><g class="node" id="ExecutionModule" transform="translate(581.83984375,438.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-63.046875" y="-20.5" width="126.09375" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-53.046875,-10.5)"><foreignObject width="106.09375" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">ExecutionModule</div></foreignObject></g></g></g><g class="node" id="MailModule" transform="translate(626.8046875,554.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-45.0390625" y="-20.5" width="90.078125" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-35.0390625,-10.5)"><foreignObject width="70.078125" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">MailModule</div></foreignObject></g></g></g><g class="node" id="ServerModule" transform="translate(138.44921875,297.5)" style="opacity: 1;"><rect rx="5" ry="5" x="-52.203125" y="-20.5" width="104.40625" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-42.203125,-10.5)"><foreignObject width="84.40625" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">ServerModule</div></foreignObject></g></g></g><g class="node" id="AppComponent" transform="translate(189,40.5)" style="opacity: 1;"><rect rx="0" ry="0" x="-57.5859375" y="-20.5" width="115.171875" height="41"></rect><g class="label" transform="translate(0,0)"><g transform="translate(-47.5859375,-10.5)"><foreignObject width="95.171875" height="21"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;">AppComponent</div></foreignObject></g></g></g></g></g></g></svg>
