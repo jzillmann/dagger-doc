@@ -26,7 +26,19 @@ dependencies {
 ```
 - Add the daggerDoc task:
 ```
-TBD..
+task daggerDoc(type: JavaCompile, group: 'build', description: 'Generates a visual dagger dependency report') {
+    source = sourceSets.main.java
+    classpath = configurations.compile + configurations.daggerDoc
+    
+    //log, mermaid, graphviz
+    def writers = project.properties.get('writers', '');
+    options.compilerArgs = [
+            "-proc:only",
+            "-processor", "io.morethan.daggerdoc.DaggerDocProcessor",
+            "-Awriters=${writers}"
+    ]
+    destinationDir = file("build/reports/dagger")
+}
 ```
 
 ### Gradle KTS
@@ -46,8 +58,11 @@ dependencies {
 task<JavaCompile>("daggerDoc") {
     source = sourceSets["main"].java
     classpath = sourceSets["main"].runtimeClasspath + configurations.annotationProcessor + configurations["daggerDoc"]
-    options.compilerArgs.addAll(arrayOf("-proc:only", "-processor", "io.morethan.daggerdoc.DaggerDocProcessor"))
-    destinationDir = file("build/doc")
+    options.compilerArgs.addAll(arrayOf(
+        "-proc:only", 
+        "-processor", 
+        "io.morethan.daggerdoc.DaggerDocProcessor"))
+    destinationDir = file("build/reports/dagger")
 }
 ```
 
