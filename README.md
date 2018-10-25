@@ -5,7 +5,8 @@ Generate documentation for your Dagger topology
 
 ## News
 
-- 2018/10/12 - 0.1 Release
+- 2018/10/25 - 0.2 Release: @ModuleDoc annotation with category/layer
+- 2018/10/12 - 0.1 Release: Show simple component/module relations
 
 ## Usage
 
@@ -20,7 +21,7 @@ configurations {
 - Setup the required dependencies:
 ```
 dependencies {
-    daggerDoc 'io.morethan.daggerdoc:dagger-doc-annotation-processor:0.1'
+    daggerDoc 'io.morethan.daggerdoc:dagger-doc-annotation-processor:0.2'
 }
 ```
 - Add the daggerDoc task:
@@ -37,7 +38,7 @@ val daggerDoc by configurations.creating
 - Setup the required dependencies:
 ```
 dependencies {
-    daggerDoc(group = "io.morethan.daggerdoc", name = "dagger-doc-annotation-processor", version = "0.1")
+    daggerDoc(group = "io.morethan.daggerdoc", name = "dagger-doc-annotation-processor", version = "0.2")
 }
 ```
 - Add the daggerDoc task:
@@ -66,3 +67,9 @@ task<JavaCompile>("daggerDoc") {
 
 - Increase version in build.properties to the release version and commit
 - Upload to Bintray repository: `./gradlew bintrayUpload`
+
+
+## Resources
+
+- Android clean architecture example: https://github.com/Teamwork/android-clean-architecture
+- https://github.com/cjstehno/dependency-checker/blob/master/src/main/groovy/com/stehno/gradle/depchecker/CheckDependenciesTask.groovy
