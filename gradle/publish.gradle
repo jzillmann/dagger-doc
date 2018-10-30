@@ -39,6 +39,12 @@ publishing {
                 scm {
                     url = gitUrl
                 }
+                developers {
+                    developer {
+                        id = 'jzillmann'
+                        name = 'Johannes Zillmann'
+                    }
+                }
             }
         }
     }

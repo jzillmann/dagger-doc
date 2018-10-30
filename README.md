@@ -86,6 +86,7 @@ task<JavaCompile>("daggerDoc") {
 
 - Increase version in build.properties to the release version and commit
 - Upload to Bintray repository: `./gradlew bintrayUpload` and release the artifacts on https://bintray.com
+- Check artifacts for arrival: http://jcenter.bintray.com/io/morethan/daggerdoc/
 - Tag the release with
 ```
 git tag -a $releaseVersion -m "Tag for $releaseVersion release"
