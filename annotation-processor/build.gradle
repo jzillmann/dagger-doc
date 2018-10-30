@@ -4,6 +4,8 @@ ext.pomDescription = 'Annotation Processor generating docs for a Dagger 2 projec
 apply plugin: 'java'
 apply from: rootProject.file("gradle/eclipse.gradle")
 apply from: rootProject.file("gradle/publish.gradle")
+apply plugin: 'net.ltgt.apt-eclipse'
+apply plugin: 'net.ltgt.apt'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -20,12 +22,11 @@ repositories {
     testCompile     group: 'com.google.dagger', name: 'dagger', version: '2.16'
     testCompile     group: 'com.google.testing.compile', name: 'compile-testing', version: '0.15'
     
+    testAnnotationProcessor group: 'com.google.dagger', name: 'dagger-compiler', version: '2.16'
+
     testCompile     group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
     testCompile     group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
     testCompileOnly group: 'org.apiguardian', name: 'apiguardian-api', version: '1.0.0' // Avoid compiler warnings about @API annotations in JUnit code
-
-    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.18.3'
-    testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: '2.18.3'
 
     testCompile group: 'org.assertj', name:'assertj-core', version:'3.9.0'
     testCompile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'

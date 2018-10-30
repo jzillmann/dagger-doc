@@ -1,5 +1,7 @@
 plugins {
   id "com.jfrog.bintray" version "1.8.4" apply false
+  id "net.ltgt.apt" version "0.15" apply false
+  id "net.ltgt.apt-eclipse" version "0.15" apply false
 }
 
 allprojects {

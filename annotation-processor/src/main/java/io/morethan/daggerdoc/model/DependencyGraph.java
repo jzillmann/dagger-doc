@@ -1,6 +1,7 @@
 package io.morethan.daggerdoc.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -12,6 +13,8 @@ import javax.lang.model.element.Element;
 import javax.lang.model.type.TypeMirror;
 
 import com.google.common.base.Verify;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
 /**
  * Assembly of {@link Node}s and {@link Link}s.
@@ -43,7 +46,7 @@ public class DependencyGraph {
         private final Map<String, Node> _nodeById = new HashMap<>();
         private final List<Linker> _linkers = new ArrayList<>();
         private final Set<MultibindingLinker> _multibindingLinkers = new HashSet<>();
-        private final Map<TypeString, String> _multibindingConsumers = new HashMap<>();
+        private final Multimap<TypeString, String> _multibindingConsumers = HashMultimap.create();
 
         public Node addNode(Element element, NodeType type, Optional<String> category) {
             String id = nodeId(element);
@@ -91,11 +94,15 @@ public class DependencyGraph {
                 links.add(new Link(node1, node2, LinkType.DEPENDS_ON));
             }
             for (MultibindingLinker linker : _multibindingLinkers) {
-                Node node1 = Verify.verifyNotNull(_nodeById.get(linker.nodeId()), "Could not resolve %s", linker.nodeId());
-                String nodeId2 = Verify.verifyNotNull(_multibindingConsumers.get(linker.multibindingType()), "Did not find multibinding sink for type %s", linker.multibindingType());
-                Node node2 = Verify.verifyNotNull(_nodeById.get(nodeId2), "Could not resolve %s", nodeId2);
-                if (!node1.equals(node2)) {
-                    links.add(new Link(node1, node2, LinkType.CONTRIBUTES_TO));
+                Node contributionNode = Verify.verifyNotNull(_nodeById.get(linker.nodeId()), "Could not resolve %s", linker.nodeId());
+                Collection<String> consumerNodes = _multibindingConsumers.get(linker.multibindingType());
+                Verify.verify(consumerNodes.size() > 0, "Did not find multibinding consumer for type %s", linker.multibindingType());
+
+                for (String consumerNodeId : consumerNodes) {
+                    Node consumerNode = Verify.verifyNotNull(_nodeById.get(consumerNodeId), "Could not resolve %s", consumerNodeId);
+                    if (!contributionNode.equals(consumerNode)) {
+                        links.add(new Link(contributionNode, consumerNode, LinkType.CONTRIBUTES_TO));
+                    }
                 }
             }
             return links;
