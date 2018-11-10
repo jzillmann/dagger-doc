@@ -19,7 +19,6 @@ export default class Graph extends React.Component {
 
     selectNode(nodeName) {
         d3.event.stopPropagation();
-        console.log("Selected " + nodeName);
         this.setState({
             selectedNode: nodeName,
         });
@@ -49,7 +48,14 @@ export default class Graph extends React.Component {
         }).filter(node => node !== undefined)]) : new Set();
 
         var g = new dagreD3.graphlib.Graph({ multigraph: false, compound: true })
-            .setGraph({ rankdir: 'TB' })
+            // for params see: https://github.com/dagrejs/dagre/wiki#configuring-the-layout
+            .setGraph({
+                rankdir: 'TB',
+                edgesep: 10,
+                ranksep: 60,
+                nodesep: 18,
+                ranker: 'tight-tree'
+            })
             .setDefaultEdgeLabel(function () { return {}; });
 
         categories.forEach(category => {
