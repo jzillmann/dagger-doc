@@ -54,6 +54,15 @@ export default class Graph extends React.Component {
 
         render(inner, g);
 
+        // Re-position cluster/category labels
+        const clusters = document.querySelectorAll('.cluster');
+        clusters.forEach(cluster => {
+            const rect = cluster.children[0];
+            const label = cluster.children[1].children[0];
+            label.setAttribute('transform', `translate(${rect.getAttribute('x')},${rect.getAttribute('y') - 20})`);
+        });
+
+
     }
 
     render() {

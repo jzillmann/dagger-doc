@@ -14,7 +14,10 @@ body {
 text {
     font-weight: 300;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
-    font-size: 14px;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .node rect,
@@ -49,5 +52,5 @@ text {
 
 .cluster {
     fill: rgb(255, 255, 225);
-    stroke: grey;
+    stroke: black;
 }
