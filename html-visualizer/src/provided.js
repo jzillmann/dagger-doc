@@ -17,12 +17,12 @@ var graphPayload = { // eslint-disable-line no-unused-vars
         {
             "name": "ExecutionModule",
             "type": "MODULE",
-            "category": "Infrsatructure Layer"
+            "category": "Infrastructure Layer"
         },
         {
             "name": "PersistenceModule",
             "type": "MODULE",
-            "category": "Infrsatructure Layer"
+            "category": "Infrastructure Layer"
         },
         {
             "name": "UserModule",
@@ -32,7 +32,7 @@ var graphPayload = { // eslint-disable-line no-unused-vars
         {
             "name": "MailModule",
             "type": "MODULE",
-            "category": "Infrsatructure Layer"
+            "category": "Infrastructure Layer"
         },
         {
             "name": "ServerModule",

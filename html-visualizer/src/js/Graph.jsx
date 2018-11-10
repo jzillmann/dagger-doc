@@ -19,16 +19,31 @@ export default class Graph extends React.Component {
     }
 
     renderDag() {
-        var g = new dagreD3.graphlib.Graph()
-            .setGraph({})
+        // TB - top bottom
+        // BT - bottom top
+        // RL - right left
+        // LR - left right
+        const providedGraph = this.props.providedGraph;
+        const categories = [...new Set(providedGraph.nodes.map(node => node.category).filter(category => category !== undefined))];
+
+
+        var g = new dagreD3.graphlib.Graph({ multigraph: false, compound: true })
+            .setGraph({ rankdir: 'TB' })
             .setDefaultEdgeLabel(function () { return {}; });
 
-        this.props.providedGraph.nodes.forEach(node => {
-            const shape = node.type === 'COMPONENT' ? 'ellipse' : 'rect';
-            g.setNode(node.name, { label: node.name, class: node.type, shape: shape });
+        categories.forEach(category => {
+            g.setNode(category, { label: category });
         });
 
-        this.props.providedGraph.links.forEach(link => {
+        providedGraph.nodes.forEach(node => {
+            const shape = node.type === 'COMPONENT' ? 'ellipse' : 'rect';
+            g.setNode(node.name, { label: node.name, class: node.type, shape: shape });
+            if (node.category) {
+                g.setParent(node.name, node.category);
+            }
+        });
+
+        providedGraph.links.forEach(link => {
             g.setEdge(link.from, link.to, { class: link.type });
         });
 
@@ -38,6 +53,7 @@ export default class Graph extends React.Component {
         let inner = d3.select(this.nodeTreeGroup);
 
         render(inner, g);
+
     }
 
     render() {
