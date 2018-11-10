@@ -10,6 +10,21 @@ export default class Graph extends React.Component {
         providedGraph: PropTypes.object.isRequired,
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedNode: null
+        };
+    }
+
+    selectNode(nodeName) {
+        d3.event.stopPropagation();
+        console.log("Selected " + nodeName);
+        this.setState({
+            selectedNode: nodeName,
+        });
+    }
+
     componentDidMount() {
         this.renderDag();
     }
@@ -25,7 +40,13 @@ export default class Graph extends React.Component {
         // LR - left right
         const providedGraph = this.props.providedGraph;
         const categories = [...new Set(providedGraph.nodes.map(node => node.category).filter(category => category !== undefined))];
-
+        const neighboursOfSelectedNodes = this.state.selectedNode ? new Set(...[providedGraph.links.map(link => {
+            if (link.from === this.state.selectedNode) {
+                return link.to;
+            } else if (link.to === this.state.selectedNode) {
+                return link.from;
+            }
+        }).filter(node => node !== undefined)]) : new Set();
 
         var g = new dagreD3.graphlib.Graph({ multigraph: false, compound: true })
             .setGraph({ rankdir: 'TB' })
@@ -37,14 +58,28 @@ export default class Graph extends React.Component {
 
         providedGraph.nodes.forEach(node => {
             const shape = node.type === 'COMPONENT' ? 'ellipse' : 'rect';
-            g.setNode(node.name, { label: node.name, class: node.type, shape: shape });
+            var clazz = node.type;
+            if (this.state.selectedNode === node.name) {
+                clazz += ' selected';
+            } else if (neighboursOfSelectedNodes.has(node.name)) {
+                clazz += ' neighbourSelected';
+            }
+            g.setNode(node.name, { label: node.name, class: clazz, shape: shape, onNodeClick: () => alert(node) });
             if (node.category) {
                 g.setParent(node.name, node.category);
             }
         });
 
         providedGraph.links.forEach(link => {
-            g.setEdge(link.from, link.to, { class: link.type });
+            var clazz = link.type;
+            if (this.state.selectedNode) {
+                if (this.state.selectedNode === link.from || this.state.selectedNode === link.to) {
+                    clazz += ' selected'
+                } else {
+                    clazz += ' unselected'
+                }
+            }
+            g.setEdge(link.from, link.to, { class: clazz });
         });
 
 
@@ -62,6 +97,9 @@ export default class Graph extends React.Component {
             label.setAttribute('transform', `translate(${rect.getAttribute('x')},${rect.getAttribute('y') - 20})`);
         });
 
+        //Register click handler
+        svg.selectAll("g.node").on("click", this.selectNode.bind(this));
+        svg.on("click", this.selectNode.bind(this));
 
     }
 

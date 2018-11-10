@@ -21,7 +21,7 @@ text {
 }
 
 .node rect,
-.node rect {
+.node ellipse {
     stroke: #999;
     fill: #fff;
     stroke-width: 1.5px;
@@ -37,16 +37,31 @@ text {
     stroke: #999;
 }
 
-.edgePath path {
-    stroke: #999;
+.node.selected > rect,
+.node.selected > ellipse {
+    fill: rgb(221, 98, 16);
 }
 
-.edgePath.DEPENDS_ON path{
+.node.neighbourSelected > rect,
+.node.neighbourSelected > ellipse {
+    fill: rgb(245, 169, 118);
+}
+
+.edgePath path {
+    stroke: #999;
     stroke-width: 1.5px;
+}
+
+.edgePath.selected path {
+    stroke: rgb(221, 98, 16);
+    stroke-width: 2.5px;
+}
+
+.edgePath.unselected path {
+    opacity: 0.3;
 }
 
 .edgePath.CONTRIBUTES_TO path{
-    stroke-width: 1.5px;
     stroke-dasharray: 5, 5;
 }
 
