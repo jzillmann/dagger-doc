@@ -1,6 +1,6 @@
 {
     "env": {
-        "browser": true,
+        "browser": true
     },
     "parser": "babel-eslint",
     "plugins": [
@@ -14,17 +14,27 @@
         }
     },
     "rules": {
-        "jsx-quotes": ["error", "prefer-double"],
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
         "react/jsx-key": "error",
-        "react/jsx-indent-props": ["error", 4],
-        "react/jsx-no-bind": ["error", {
-            "ignoreRefs": true,
-            "allowArrowFunctions": true,
-            "allowBind": false
-        }],
+        "react/jsx-indent-props": [
+            "error",
+            4
+        ],
+        "react/jsx-no-bind": [
+            "error",
+            {
+                "ignoreRefs": true,
+                "allowArrowFunctions": true,
+                "allowBind": false
+            }
+        ],
+        "no-console": "warn"
     },
     "extends": [
-        "eslint:recommended", 
+        "eslint:recommended",
         "plugin:react/recommended"
-        ]
+    ]
 }

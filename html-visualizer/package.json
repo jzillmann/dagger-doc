@@ -4,8 +4,10 @@
   "description": "Visualize A Dagger Graph.",
   "main": "index.js",
   "scripts": {
+    "dev": "npx webpack --mode development",
+    "build": "npx webpack --mode production",
     "watch": "npx webpack --mode development --watch",
-    "build": "npx webpack --mode production"
+    "lint": "eslint . --ext .js --ext .jsx --cache"
   },
   "keywords": [],
   "author": "",
@@ -16,10 +18,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.0",
     "eslint": "^5.7.0",
     "eslint-loader": "^2.1.1",
@@ -31,6 +35,8 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
+    "dagre": "^0.8.2",
+    "dagre-d3": "^0.6.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   }

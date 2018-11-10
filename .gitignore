@@ -5,6 +5,7 @@
 .apt_generated/
 .factorypath
 .vscode/
+.eslintcache
 bin/
 build/
 node_modules/

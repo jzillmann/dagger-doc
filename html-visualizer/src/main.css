@@ -1,4 +1,48 @@
 body {
     line-height: 2;
-    background-color: coral;
+    background-color: white;
+}
+
+.centered {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+}
+
+text {
+    font-weight: 300;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
+    font-size: 14px;
+}
+
+.node rect,
+.node rect {
+    stroke: #999;
+    fill: #fff;
+    stroke-width: 1.5px;
+}
+
+.node.COMPONENT ellipse {
+    fill: #D79922;
+    stroke: #999;
+}
+
+.node.MODULE > rect {
+    fill: #EFE2BA;
+    stroke: #999;
+}
+
+.edgePath path {
+    stroke: #999;
+}
+
+.edgePath.DEPENDS_ON path{
+    stroke-width: 1.5px;
+}
+
+.edgePath.CONTRIBUTES_TO path{
+    stroke-width: 1.5px;
+    stroke-dasharray: 5, 5;
 }
