@@ -15,6 +15,7 @@ export default class Graph extends React.Component {
         this.state = {
             selectedNode: null
         };
+        this.selectNode = this.selectNode.bind(this)
     }
 
     selectNode(nodeName) {
@@ -37,12 +38,13 @@ export default class Graph extends React.Component {
         // BT - bottom top
         // RL - right left
         // LR - left right
-        const providedGraph = this.props.providedGraph;
+        const { providedGraph } = this.props;
+        const { selectedNode } = this.state;
         const categories = [...new Set(providedGraph.nodes.map(node => node.category).filter(category => category !== undefined))];
-        const neighboursOfSelectedNodes = this.state.selectedNode ? new Set(...[providedGraph.links.map(link => {
-            if (link.from === this.state.selectedNode) {
+        const neighboursOfSelectedNodes = selectedNode ? new Set(...[providedGraph.links.map(link => {
+            if (link.from === selectedNode) {
                 return link.to;
-            } else if (link.to === this.state.selectedNode) {
+            } else if (link.to === selectedNode) {
                 return link.from;
             }
         }).filter(node => node !== undefined)]) : new Set();
@@ -65,7 +67,7 @@ export default class Graph extends React.Component {
         providedGraph.nodes.forEach(node => {
             const shape = node.type === 'COMPONENT' ? 'ellipse' : 'rect';
             var clazz = node.type;
-            if (this.state.selectedNode === node.name) {
+            if (selectedNode === node.name) {
                 clazz += ' selected';
             } else if (neighboursOfSelectedNodes.has(node.name)) {
                 clazz += ' neighbourSelected';
@@ -78,8 +80,8 @@ export default class Graph extends React.Component {
 
         providedGraph.links.forEach(link => {
             var clazz = link.type;
-            if (this.state.selectedNode) {
-                if (this.state.selectedNode === link.from || this.state.selectedNode === link.to) {
+            if (selectedNode) {
+                if (selectedNode === link.from || selectedNode === link.to) {
                     clazz += ' selected'
                 } else {
                     clazz += ' unselected'
@@ -104,8 +106,8 @@ export default class Graph extends React.Component {
         });
 
         //Register click handler
-        svg.selectAll("g.node").on("click", this.selectNode.bind(this));
-        svg.on("click", this.selectNode.bind(this));
+        svg.selectAll("g.node").on("click", this.selectNode);
+        svg.on("click", this.selectNode);
 
     }
 
