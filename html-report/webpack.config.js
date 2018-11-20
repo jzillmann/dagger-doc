@@ -17,6 +17,9 @@ module.exports = {
             path.resolve(__dirname, 'node_modules')
         ]
     },
+    output: {
+        path: __dirname + '/../annotation-processor/build/gen/ui'
+    },
     module: {
         rules: [
             {

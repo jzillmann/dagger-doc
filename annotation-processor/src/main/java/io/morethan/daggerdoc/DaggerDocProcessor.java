@@ -106,7 +106,7 @@ public class DaggerDocProcessor extends AbstractProcessor {
         }
         messager.printMessage(Kind.NOTE, "Activated result writers (writers=" + writersOption + "):", null);
         for (ResultWriter resultWriter : resultWriters) {
-            messager.printMessage(Kind.NOTE, "\t" + resultWriter.getClass().getName(), null);
+            messager.printMessage(Kind.NOTE, "\t" + resultWriter.id() + "\t- " + resultWriter.getClass().getName(), null);
         }
         return resultWriters;
     }

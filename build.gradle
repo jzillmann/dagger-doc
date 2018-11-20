@@ -8,3 +8,10 @@ allprojects {
     group = 'io.morethan.daggerdoc'
     version = projectVersion
 }
+
+task openHtmlReport(type:Exec) {
+    group "UI"
+    description 'Opens generated index.html of the html-report.'
+
+    commandLine "open", file("annotation-processor/build/gen/ui/index.html")
+}

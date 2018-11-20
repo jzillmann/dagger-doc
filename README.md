@@ -73,6 +73,19 @@ task<JavaCompile>("daggerDoc") {
 
 ## Project Build
 
+### Useful Tasks
+
+- Build html report files
+  - Plain NPM
+  ```
+  cd html-report
+  npm run build
+  npm run watch
+  ```
+  - With Gradle: `./gradlew npmBuild`
+- Open index.html of html-report: `./gradlew openHtmlReport`
+- Generate project reports for example project: `./gradlew daggerDoc  --no-daemon --offline`
+
 ### Release Project
 
 - Tell gradle about the gpg key and sonatype/bintray/signing credentials, e.g. through ~/.gradle/gradle.properties

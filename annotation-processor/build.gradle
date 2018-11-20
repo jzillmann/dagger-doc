@@ -14,9 +14,21 @@ repositories {
     jcenter()
 }
 
- dependencies {
-    compile     project(':dagger-doc-annotations')
-    compileOnly     group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc4'
+sourceSets {
+    main {
+        resources {
+            srcDir "build/gen"
+        }
+    }
+}
+
+jar {
+   exclude('ui/provided.js')
+}
+
+dependencies {
+    compile         project(':dagger-doc-annotations')
+    compile         group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc4'
     compileOnly     group: 'com.google.dagger', name: 'dagger', version: '2.16'
     testCompile     group: 'com.google.auto.service', name: 'auto-service', version: '1.0-rc4'
     testCompile     group: 'com.google.dagger', name: 'dagger', version: '2.16'
@@ -30,10 +42,32 @@ repositories {
 
     testCompile group: 'org.assertj', name:'assertj-core', version:'3.9.0'
     testCompile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-
 }
 
 test {
     useJUnitPlatform()
     ignoreFailures project.hasProperty('ignoreTestFailures')
+}
+
+task npmInstall(type:Exec) {
+    group "UI"
+    description 'Installs all necessary UI libraries.'
+
+    workingDir = rootProject.file("html-report")
+    commandLine "npm", "install", "--no-save"
+
+    inputs.file("${workingDir}/package-lock.json")
+    outputs.dir("${workingDir}/node_modules")
+}
+
+task npmBuild(type:Exec) {
+    group "UI"
+    description 'Builds the UI artifacts.'
+    dependsOn "npmInstall"
+
+    workingDir = rootProject.file("html-report")
+    commandLine "npm", "run", "build"
+
+    inputs.dir("${workingDir}/src")
+    outputs.dir("build/gen/ui")
 }

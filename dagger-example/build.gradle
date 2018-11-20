@@ -15,9 +15,10 @@ configurations {
     daggerDoc
 }
 
+
 dependencies {
     compileOnly project(':dagger-doc-annotations')
-    compile group: 'com.google.guava',          name: 'guava',              version: '23.0'
+    compile group: 'com.google.guava',          name: 'guava',              version: '23.3-jre'
     compile group: 'com.google.dagger',         name: 'dagger',             version: '2.16'
     compile group: 'org.slf4j',                 name: 'slf4j-api',          version: '1.7.25'
     compile group: 'org.apache.logging.log4j',  name: 'log4j-slf4j-impl',   version: '2.11.1'
@@ -35,7 +36,7 @@ task daggerDoc(type: JavaCompile, group: 'build', description: 'Generates a visu
     source = sourceSets.main.java
     classpath = configurations.compile + configurations.daggerDoc
     
-    //log, mermaid, graphviz
+    //log, mermaid, html
     def writers = project.properties.get('writers', '');
     options.compilerArgs = [
             "-proc:only",

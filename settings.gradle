@@ -2,7 +2,6 @@ rootProject.name = 'dagger-doc'
 
 module('annotations')
 module('annotation-processor')
-module('html-report')
 module('dagger-example')
 
 def module(String shortName) {
