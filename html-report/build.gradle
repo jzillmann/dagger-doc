@@ -1,0 +1,17 @@
+ext.pomName = 'Dagger Doc - HTML Report'
+ext.pomDescription = 'HTML Report generator for Dagger Doc.'
+
+apply plugin: 'java'
+apply from: rootProject.file("gradle/eclipse.gradle")
+apply from: rootProject.file("gradle/publish.gradle")
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile     project(':dagger-doc-annotation-processor')
+}

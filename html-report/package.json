@@ -1,7 +1,7 @@
 {
-  "name": "dagger-doc-html-visualizer",
+  "name": "dagger-doc-html-report",
   "version": "1.0.0",
-  "description": "Visualize A Dagger Graph.",
+  "description": "HTML Report for Dagger Doc.",
   "main": "index.js",
   "scripts": {
     "dev": "npx webpack --mode development",
