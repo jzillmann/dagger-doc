@@ -75,7 +75,8 @@ public class MermaidResultWriter implements ResultWriter {
                 });
             }
 
-            processingEnv.getMessager().printMessage(Kind.NOTE, "Written result file to file://" + outputFile.getName(), null);
+            processingEnv.getMessager().printMessage(Kind.NOTE, "Written Mermaid code to file://" + outputFile.getName(), null);
+            processingEnv.getMessager().printMessage(Kind.NOTE, "Use https://mermaidjs.github.io/mermaid-live-editor to convert the code into an SVG", null);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
