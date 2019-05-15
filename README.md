@@ -9,6 +9,8 @@ Generate documentation for your Dagger topology. A annotation processor scans fo
 
 ## News
 
+- 2019/05/15 - 0.4 Release: HTML Report
+- 2018/10/30 - 0.3 Release: Fix multiple multi bindings
 - 2018/10/25 - 0.2 Release: @ModuleDoc annotation with category/layer
 - 2018/10/12 - 0.1 Release: Show simple component/module relations
 
@@ -111,3 +113,4 @@ git push --tags
 
 - Android clean architecture example: https://github.com/Teamwork/android-clean-architecture
 - https://github.com/cjstehno/dependency-checker/blob/master/src/main/groovy/com/stehno/gradle/depchecker/CheckDependenciesTask.groovy
+- https://jgraph.github.io/mxgraph/docs/manual.html
