@@ -63,7 +63,7 @@ bintray {
     user = bintrayUser
     key = bintrayKey
     publications = ['mavenPublication']
-    dryRun = false
+    dryRun = project.findProperty('dryRun') ?: false
     publish = false
     override = false
 
@@ -82,6 +82,10 @@ bintray {
                 sign = true
             }
         }
+    }
+
+    if(dryRun) {
+        println "Running in dry run mode!"
     }
 
 }

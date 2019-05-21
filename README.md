@@ -100,6 +100,7 @@ task<JavaCompile>("daggerDoc") {
   - signing.secretKeyRingFile=/Users/$username/.gnupg/secring.gpg
 
 - Increase version in build.properties to the release version and commit
+- Build the release: `./gradlew publish`
 - Upload to Bintray repository: `./gradlew bintrayUpload` and release the artifacts on https://bintray.com
 - Check artifacts for arrival: http://jcenter.bintray.com/io/morethan/daggerdoc/
 - Tag the release with

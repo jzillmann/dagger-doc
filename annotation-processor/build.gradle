@@ -71,3 +71,5 @@ task npmBuild(type:Exec) {
     inputs.dir("${workingDir}/src")
     outputs.dir("build/gen/ui")
 }
+
+publish.dependsOn npmBuild
